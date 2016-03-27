@@ -1,0 +1,13 @@
+.headbtn{
+   float: right;
+    margin-top: 9px;
+    margin-right: 25px;
+}
+.navbar-inverse{
+	color: #ffffff;
+}
+.formInicial label, .formInicial input[type='submit']{
+	margin-top: 15px;
+	margin-bottom: 5px;
+	display: block;
+}

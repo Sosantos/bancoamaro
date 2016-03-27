@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+
+
+{% block head %}
+	{% include "correntista/menu.html" %}
+{% endblock%}
+
+
+{% block conteudo %}
+	<h1>Bem vindo ao banco Amaro {{ request.user }}</h1>
+	{% if message %}<p><strong>{{ message }}</strong></p>{% endif %}
+
+
+	Saldo: R${{ saldo|floatformat:2 }}
+	<br />
+
+	Saque: 
+		<form action="{% url 'bancoamaro:operacao' %}" method="post" name='operacao'id="saqueForm" class="formCorrentista">
+			{% csrf_token %}
+			<input type="hidden" name='tipo_op' id='tipo_op' value='2'/>
+			<input type="number" name='valor' id='valor'/>
+			<input type="submit" value='Sacar'>
+		</form>
+	<br />
+
+	Depósito:
+		<form action="{% url 'bancoamaro:operacao' %}" method="post" name='operacao'id="depositoForm" class="formCorrentista">
+			{% csrf_token %}
+			<input type="hidden" name='tipo_op' id='tipo_op' value='1'/>
+			<input type="number" name='valor' id='valor'/>
+			<input type="submit" value='Depositar'>
+		</form>
+	<br />
+
+	
+
+{% endblock%}
+
+
+{% block footer %}
+{% endblock%}
+
+

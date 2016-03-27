@@ -1,0 +1,47 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+	{% include "administracao/menu.html" %}
+{% endblock%}
+
+
+{% block conteudo %}
+<h1>Relatório {{ cliente.username }}</h1>
+<ul>
+	<li>Código : {{ cliente.username }}</li>
+	<li>Nome : {{ cliente.nome }}</li>
+	<li>CPF : {{ cliente.cpf }}</li>
+	<li>saldo : {{ cliente.saldo }}</li>
+</ul>
+
+	{% if operacoes %}
+		<table border=1>
+			<thead>
+				<td>Operação</td>
+				<td>Valor</td>
+				<td>Data</td>
+			</thead>			
+			
+			{% for op in operacoes %}
+				<tr>
+					<td>{{ op.tipo_op }}</td>
+					<td>R${{ op.valor }}</td>
+					<td>{{ op.dataHora }}</td>
+				</tr>
+			
+			{% endfor %}
+
+		</table>
+	{% else %}
+		<p> Cliente não tem operações cadastradas</p>
+	{% endif %}
+
+
+{% endblock%}
+
+
+{% block footer %}
+{% endblock%}
+
+

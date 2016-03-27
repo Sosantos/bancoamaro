@@ -1,0 +1,27 @@
+{% extends 'layout.html' %}
+
+
+{% block head %}
+	{% include "administracao/menu.html" %}
+{% endblock%}
+
+
+{% block conteudo %}
+<h1>Bem vindo ao banco Amaro admin</h1>
+
+	{% if clientes %}
+		<ul>
+		{% for cl in clientes %}
+			<li><a href="{% url 'bancoamaro:relatorioCliente' cl.id %}">{{ cl.username }} - {{cl.nome }} - {{cl.cpf}} - {{cl.objectd.saldoCliente}}</a></li>
+		{% endfor %}
+		</ul>
+	{% endif %}
+
+
+{% endblock%}
+
+
+{% block footer %}
+{% endblock%}
+
+

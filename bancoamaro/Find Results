@@ -1,0 +1,10 @@
+Searching 4 files for "oramateste.urls"
+
+/home/sosantos/estudos/python/orama/oramatest/oramatest/settings.py:
+   51  ]
+   52  
+   53: ROOT_URLCONF = 'oramatest.urls'
+   54  
+   55  TEMPLATES = [
+
+1 match in 1 file

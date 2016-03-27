@@ -1,0 +1,34 @@
+{% load staticfiles%}
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" type="text/css" a href="{% static 'banco/bootstrap/css/bootstrap.min.css' %}" />
+
+	<link rel="stylesheet" type="text/css" a href="{% static 'banco/style.css' %}" />
+	<title>Banco Amaro</title>
+
+</head>
+<body>
+
+	{% block head %}
+
+	{% endblock %}
+
+	<div class="jumbotron">
+		<div class="container">
+			{% block conteudo %}
+				{% if message %}<p><strong>{{ message }}</strong></p>{% endif %}
+				
+			{% endblock %}
+		</div>
+	</div>
+
+	{% block footer %}
+	{% endblock %}
+</body>
+</html>

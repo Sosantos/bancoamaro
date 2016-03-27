@@ -1,0 +1,20 @@
+{% load staticfiles%}
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="{% url 'bancoamaro:index'%}"><img id="amarologo" src="{% static 'banco/images/amarologo.png' %}" alt="Banco Amaro" /></a>
+		</div>
+		<div id="navbar" class="navbar-collapse collapse">
+			
+			<a href="{% url 'bancoamaro:novaConta'%}" class="btn btn-success headbtn">Nova Conta</a>
+			<a href="{% url 'bancoamaro:logar'%}" class="btn btn-success headbtn">Login</a>
+		</div><!--/.navbar-collapse -->
+	</div>
+</nav>
