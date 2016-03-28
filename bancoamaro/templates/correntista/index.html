@@ -11,27 +11,41 @@
 	<h1>Bem vindo ao banco Amaro {{ request.user }}</h1>
 	{% if message %}<p><strong>{{ message }}</strong></p>{% endif %}
 
+	
+	<div class="form-group">
+		<div class="input-group">
+			<div class="input-group-addon">Saldo R$</div>
+			<input type="number" class="form-control" disabled />
+		</div>
+	</div>
 
-	Saldo: R${{ saldo|floatformat:2 }}
-	<br />
+	<form action="{% url 'bancoamaro:operacao' %}" method="post" name='operacao' class="form-inline" >
+		{% csrf_token %}
+		<input type="hidden" name='tipo_op' id='tipo_op' value='2'/>
 
-	Saque: 
-		<form action="{% url 'bancoamaro:operacao' %}" method="post" name='operacao'id="saqueForm" class="formCorrentista">
-			{% csrf_token %}
-			<input type="hidden" name='tipo_op' id='tipo_op' value='2'/>
-			<input type="number" name='valor' id='valor'/>
-			<input type="submit" value='Sacar'>
-		</form>
-	<br />
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon">Saque R$</div>
+				<input type="number" min=0 class="form-control" name='valor' id='valorsaque' />
+			</div>
+		</div>
+		<input type="submit" value='Sacar'  class="btn btn-primary" />
+	</form>
 
-	Depósito:
-		<form action="{% url 'bancoamaro:operacao' %}" method="post" name='operacao'id="depositoForm" class="formCorrentista">
-			{% csrf_token %}
-			<input type="hidden" name='tipo_op' id='tipo_op' value='1'/>
-			<input type="number" name='valor' id='valor'/>
-			<input type="submit" value='Depositar'>
-		</form>
 	<br />
+	
+	<form action="{% url 'bancoamaro:operacao' %}" method="post" name='operacao' class="form-inline" >
+		{% csrf_token %}
+		<input type="hidden" name='tipo_op' id='tipo_op' value='1'/>
+
+		<div class="form-group">
+			<div class="input-group">
+				<div class="input-group-addon">Depósito R$</div>
+				<input type="number" min=0 class="form-control" name='valor' id='valorDeposito' />
+			</div>
+		</div>
+		<input type="submit" value='Depositar'  class="btn btn-primary" />
+	</form>
 
 	
 

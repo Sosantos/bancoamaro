@@ -7,8 +7,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import Permission
 from django.contrib.contenttypes.models import ContentType
 from django.core.urlresolvers import reverse
-from django.http import HttpResponseRedirect, HttpResponse
-from django.shortcuts import get_object_or_404, render, redirect
+from django.http import HttpResponseRedirect, HttpResponse, Http404
+from django.shortcuts import get_object_or_404, render, redirect, render_to_response
+from django.template.context import RequestContext
 
 from bancoamaro.models import Cliente, Operacao2
 
@@ -120,3 +121,15 @@ def relatorioCliente(request, cliente_id):
 		return render(request,'administracao/index.html', {
 			'error_message': 'Cliente não existe'
 		})
+
+# def ajax_porDia(request):
+# 	if request.is_ajax():
+		# data = request.GET.get('dateText')
+
+		# deposito = Operacao2.objects.filter(tipo_op=1, dataHora=datetime(2008, 03, 27)).aggregate(Sum('valor'))
+  #       saque = Operacao2.objects.filter(tipo_op=2, dataHora=datetime(2008, 03, 27)).aggregate(Sum('valor'))
+  #       deposito=deposito['valor__sum']
+  #       saque=['valor__sum']
+
+	    # return render_to_response( 'results.html', { 'deposito': 3,'saque': 4, }, 
+	    #                            context_instance = RequestContext( request ) )

@@ -7,20 +7,24 @@
 
 
 {% block conteudo %}
-<h1>Relatório {{ cliente.username }}</h1>
-<ul>
-	<li>Código : {{ cliente.username }}</li>
-	<li>Nome : {{ cliente.nome }}</li>
-	<li>CPF : {{ cliente.cpf }}</li>
-	<li>saldo : {{ cliente.saldo }}</li>
+<div id="backBtn">
+	<a href="{% url 'bancoamaro:administracao'%}"><span class="glyphicon glyphicon-triangle-left"></span>Voltar</a>
+</div>
+<ul  class="list-group">
+	<li class="list-group-item">Código : {{ cliente.username }}</li>
+	<li class="list-group-item">Nome : {{ cliente.nome }}</li>
+	<li class="list-group-item">CPF : {{ cliente.cpf }}</li>
+	<li class="list-group-item">saldo : {{ cliente.saldo }}</li>
 </ul>
 
 	{% if operacoes %}
-		<table border=1>
+		<table class='table table-striped'>
 			<thead>
-				<td>Operação</td>
-				<td>Valor</td>
-				<td>Data</td>
+				<tr>
+					<th>Operação</th>
+					<th>Valor</th>
+					<th>Data</th>
+				</tr>
 			</thead>			
 			
 			{% for op in operacoes %}

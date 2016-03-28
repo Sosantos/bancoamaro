@@ -11,3 +11,20 @@
 	margin-bottom: 5px;
 	display: block;
 }
+#backBtn, #porDia{
+	margin: 25px 10px;
+}
+.input-group{
+	width:400px;
+}
+.form-control{
+	width:300px;
+	
+}
+.form-inline input[type='btn btn-primary'].btn-primary{
+	width:250px;
+
+}
+.jumbotron .h1, .jumbotron h1{
+	font-size: 40px;
+}

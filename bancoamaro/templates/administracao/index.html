@@ -7,14 +7,37 @@
 
 
 {% block conteudo %}
-<h1>Bem vindo ao banco Amaro admin</h1>
+
+	<ul id="porDia" class="list-group">
+		<li class="list-group-item"><input class="datepicker" id="datepicker"  /></li>
+		<li class="list-group-item">Depositado:<span id='porDiaDepositado'></span></li>
+		<li class="list-group-item">Sacado:<span id='porDiaSacado'></span></li>
+	</ul>
 
 	{% if clientes %}
-		<ul>
-		{% for cl in clientes %}
-			<li><a href="{% url 'bancoamaro:relatorioCliente' cl.id %}">{{ cl.username }} - {{cl.nome }} - {{cl.cpf}} - {{cl.objectd.saldoCliente}}</a></li>
-		{% endfor %}
-		</ul>
+		<table class='table table-striped'>
+			<thead>
+				<tr>
+					<th>Código</th>
+					<th>Nome</th>
+					<th>CPF</th>
+					<th>Saldo</th>
+					<th></th>
+				</tr>
+			</thead>			
+			
+			{% for cl in clientes %}
+				<tr>
+					<td>{{ cl.username }}</td>
+					<td>{{ cl.nome }}</td>
+					<td>{{ cl.cpf }}</td>
+					<td></td>
+					<td><a href="{% url 'bancoamaro:relatorioCliente' cl.id %}"><span class="glyphicon glyphicon-eye-open"></span></a></td>
+				</tr>
+			
+			{% endfor %}
+
+		</table>
 	{% endif %}
 
 
